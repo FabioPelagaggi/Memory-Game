@@ -1,7 +1,7 @@
 body{
   margin: 0;
   padding:0;
-  background-color: rgb(240, 233, 223);
+  background-color: rgb(238, 212, 157);
 }
 
 #board{
@@ -10,7 +10,6 @@ body{
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  
 }
 
 #container{
@@ -52,7 +51,7 @@ body{
   background: linear-gradient(45deg, rgba(2, 0, 36, 0.75) 0%, rgba(121, 95, 40, 0.5) 50%, rgba(255, 217, 0, 0.25) 100%);
   backface-visibility:hidden; 
   border-radius:10px;
-  box-shadow: 14px 14px 14px 0 rgba(0,0,0,0.2);
+  box-shadow: 8px 8px 8px 0 rgba(0,0,0,0.2);
 }
 
 .back{
@@ -61,14 +60,41 @@ body{
   box-shadow: none;
 }
 
-#score_display{
+#menu{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   padding: 30px;
   margin: 30px;
-  align-items: center;
   border-radius:10px;
   border:4px solid rgba(0, 0, 0, 0.2);
   background-color: rgba(191, 243, 148, 0.2);
   box-shadow: 14px 14px 14px 0 rgba(0,0,0,0.2);
+}
+
+#menu_buttons{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  column-gap: 30px;
+  justify-content: space-evenly;
+}
+button{
+  border: rgba(0,0,0,0.1);
+  padding: 15px;
+  background-color: rgba(243, 231, 161, 0.671);
+  border-radius:10px;
+  box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
+  margin: 0 auto 0 auto;
+  border-bottom:3px solid rgba(0,0,0,0.1);
+}
+button:hover{
+  background-color: rgba(255, 217, 0, 0.25);
+  color: rgb(109, 109, 109);
+  border-bottom:3px solid rgba(0,0,0,0.2);
 }
 
 img{
