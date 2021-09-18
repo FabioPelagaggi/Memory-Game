@@ -1,124 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <title>repl.it</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="container">
+    <div id="board">
+      
+      <div id='score_display'>
+        <h3><span>SCORE:<span id='score'>0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME:<span id='time'>00:00</span></span></h3><br><br>
+      </div>
+      
+      <div id="container">
 
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 01"></div>
+          </div>
         </div>
-      </div>
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 02"></div>
+          </div>
+        </div>
+
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 03"></div>
+          </div>
+        </div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 04"></div>
+          </div>
+        </div>
+
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 05"></div>
+          </div>
+        </div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 06"></div>
+          </div>
+        </div>
+
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 07"></div>
+          </div>
+        </div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 08"></div>
+          </div>
+        </div>
+
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 09"></div>
+          </div>
+        </div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 10"></div>
+          </div>
+        </div>
+
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 11"></div>
+          </div>
+        </div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 12"></div>
+          </div>
+        </div>
+
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 13"></div>
+          </div>
+        </div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 14"></div>
+          </div>
+        </div>
+
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 15"></div>
+          </div>
+        </div>
+        <div class="card_outer">
+          <div class="card_inner">
+            <div class="front"></div>
+            <div class="back"><img src="images/cross.png" alt="Card 16"></div>
+          </div>
         </div>
       </div>
 
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-      <div class="card_outer">
-        <div class="card_inner">
-          <div class="front"></div>
-          <div class="back"><img src=""></div>
-        </div>
-      </div>
-
-    <div id='board'>
-        <span><h1>SCORE:<span id='score'>0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME:<span id='time'>00:00</span></h1></span>
-        <br><br>
     </div>
 
     <script src="script.js"></script>
-    
   </body>
 </html>
