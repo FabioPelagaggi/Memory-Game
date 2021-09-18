@@ -1,17 +1,13 @@
-let cards = document.querySelectorAll('.card_inner')
-let firstClick = false
-let cardPair = []
-
-cards.forEach((card)=>{
-    card.state = 'unclicked'
-})
-
-shuffle()
+var cards = document.querySelectorAll('.card_inner')
+// var firstClick = false
+var cardPair = []
+var countingTime
+var score = document.querySelector('#score').innerHTML
 
 for(let i=0; i<cards.length; i++){
     cards[i].addEventListener('click',()=>{
-        if(!firstClick){time()}
-        firstClick = true        
+        // if(!firstClick){time()}
+        // firstClick = true        
 
         if(cards[i].state == 'unclicked'){
             cards[i].style.transform = 'rotateY(180deg)'
@@ -28,6 +24,44 @@ for(let i=0; i<cards.length; i++){
     })
 }
 
+function gameStart(){
+  settingUp()
+  setTimeout(()=>{
+    time()
+  },3500)
+}
+
+function settingUp(){
+  hideCards()
+  shuffle()
+  setTimeout(()=>{
+    revealCards()
+  },500)
+  setTimeout(()=>{
+    hideCards()
+    cardsStateUnclicked()
+  },3000)
+}
+
+function revealCards(){
+  cards.forEach((card)=>{
+    card.style.transform = 'rotateY(180deg)'
+  })
+}
+
+function hideCards(){
+  cards.forEach((card)=>{
+    card.style.transform = 'rotateY(0deg)'
+  })
+}
+
+function cardsStateUnclicked(){
+  cards.forEach((card)=>{
+    card.state = 'unclicked'
+  })
+
+}
+
 function check(){
     if(cardPair.length==2){
         if(cardPair[0].querySelector('img').src==cardPair[1].querySelector('img').src){
@@ -40,20 +74,23 @@ function check(){
 }
 
 function matched(){
-    cardPair[0].state='blocked'
-    cardPair[1].state='blocked'
-    cardPair = []
-    let score = document.querySelector('#score').innerHTML
-    score++
-    document.querySelector('#score').innerHTML = score
+  cardPair[0].state='blocked'
+  cardPair[1].state='blocked'
+  cardPair = []
+
+  score++
+  document.querySelector('#score').innerHTML = score
+  if(score == 8){
+    clearInterval(countingTime)
+  }
 }
 
-function unmatched(x,y){
+function unmatched(firstCard,secondCard){
     setTimeout(()=>{
-        x.state = 'unclicked'
-        y.state = 'unclicked'
-        x.style.transform = "rotateY(0deg)"
-        y.style.transform = "rotateY(0deg)"
+        firstCard.state = 'unclicked'
+        secondCard.state = 'unclicked'
+        firstCard.style.transform = "rotateY(0deg)"
+        secondCard.style.transform = "rotateY(0deg)"
     },1500)
     cardPair[0].state = 'blocked'
     cardPair[1].state = 'blocked'
@@ -65,14 +102,15 @@ function time(){
     let mins = 0
     let SS
     let MM
-    setInterval(()=>{
-        secs++
-        if(secs==60){secs=0; mins++}
 
-        secs<10?SS=`0${secs}`:SS=`${secs}`
-        mins<10?MM=`0${mins}`:SS=`${mins}`
-        
-        document.querySelector('#time').innerHTML = `${MM}:${SS}`
+    countingTime = setInterval(()=>{
+      secs++
+      if(secs==60){secs=0; mins++}
+
+      secs<10?SS=`0${secs}`:SS=`${secs}`
+      mins<10?MM=`0${mins}`:SS=`${mins}`
+      
+      document.querySelector('#time').innerHTML = `${MM}:${SS}`
     }, 1000)
 }
 
