@@ -11,17 +11,17 @@
     <div id="board">
 
       <h1>Memory Game</h1>
-      
-      <div id="menu">
-        <div id='score_display'>
-          <h3><span>SCORE: <span id='score'>0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME: <span id='time'>00:00</span></span></h3><br><br>
-        </div>
-        <div id="menu_buttons">
-          <button id="startResetButton" onclick="gameStart()">Start</button>
-          <button id="bestScoreButton">Best Score</button>
-        </div>
+
+      <div id='score_display' class="sticky">
+          <h3><span>TIME</span></br><span id='time'>00:00</span></span></h3>
       </div>
       
+      <div id="menu">       
+        <div id="menu_buttons">
+          <button id="startResetButton" onclick="gameStart()">Start</button>
+          <button id="bestScoreButton" onclick="showLocalBestTime()">Best Time</button>
+        </div>
+      </div>
       
       <div id="container">
 

@@ -1,38 +1,8 @@
 var cards = document.querySelectorAll('.card_inner')
 var cardPair = []
+var localBestTime
 var countingTime
 var score
-
-$(document).ready(function() {
-  score = $('#score').text()
-})
-
-for(let i=0; i<cards.length; i++){
-    cards[i].addEventListener('click',()=>{ 
-
-        if(cards[i].state == 'unclicked'){
-            cards[i].style.transform = 'rotateY(180deg)'
-            cards[i].state = 'clicked'
-            cardPair.push(cards[i])
-            check()
-        }
-
-        else if(cards[i].state == 'clicked'){
-            cards[i].style.transform = 'rotateY(0deg)'
-            cards[i].state = 'unclicked'
-            cardPair = []
-        }
-    })
-}
-
-// $(document).ready(function() {
-//   $('.card_outer').click(function() {
-//       $(this).fadeOut('slow');
-//       $(this).slideDown('fast');
-//       $(this).slideUp('fast');
-//       $(this).fadeIn('slow');
-//     })
-// })
 
 function gameStart(){
   settingUp()
@@ -50,7 +20,7 @@ function settingUp(){
     score = 0
     $('#time').text(`00:00`)
     clearInterval(countingTime)
-    updateScore()
+    // updateScore()
     hideCards()
     shuffle()
     setTimeout(()=>{
@@ -104,9 +74,14 @@ function matched(){
   cardPair[1].state='blocked'
   cardPair = []
   score++
-  updateScore()
+  // updateScore()
+  checkEndGame()
+}
+
+function checkEndGame(){
   if(score == 8){
     clearInterval(countingTime)
+    checkNewTime($('#time').text())
   }
 }
 
@@ -155,3 +130,64 @@ function shuffle(){
           images[i].src = srcs[i]
       }
 }
+
+function saveLocalStoreNew(){
+  localStorage.bestTime = $('#time').text()
+}
+
+function getLocalTime(){
+  localBestTime = localStorage.getItem('bestTime')
+  return localBestTime
+}
+
+function showLocalBestTime(){
+  let localTime = getLocalTime()
+  if(localTime != null){
+    alert("The Best Time is: " + localTime)
+  } else {
+    alert("No Best Time Store")
+  }
+}
+
+function convertTime(ms){
+  var a = ms.split(':')
+  var seconds = (+a[0]) * 60 + (+a[1])
+  return seconds
+}
+
+function checkNewTime(newTime){
+  if(convertTime(newTime) <= convertTime(localBestTime)){
+    saveLocalStoreNew()
+  }
+}
+
+$(document).ready(function() {
+  score = $('#score').text()
+})
+
+for(let i=0; i<cards.length; i++){
+    cards[i].addEventListener('click',()=>{ 
+
+        if(cards[i].state == 'unclicked'){
+            cards[i].style.transform = 'rotateY(180deg)'
+            cards[i].state = 'clicked'
+            cardPair.push(cards[i])
+            check()
+        }
+
+        else if(cards[i].state == 'clicked'){
+            cards[i].style.transform = 'rotateY(0deg)'
+            cards[i].state = 'unclicked'
+            cardPair = []
+        }
+    })
+}
+
+// $(document).ready(function() {
+//   $('.card_outer').click(function() {
+//       $(this).fadeOut('slow');
+//       $(this).slideDown('fast');
+//       $(this).slideUp('fast');
+//       $(this).fadeIn('slow');
+//     })
+// })
