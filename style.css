@@ -47,7 +47,8 @@ body{
 .front,.back{ 
   position:absolute; 
   height:100%; 
-  width:100%; 
+  width:100%;
+  cursor: pointer;
   background: linear-gradient(45deg, rgba(2, 0, 36, 0.75) 0%, rgba(121, 95, 40, 0.5) 50%, rgba(255, 217, 0, 0.25) 100%);
   backface-visibility:hidden; 
   border-radius:10px;
@@ -90,6 +91,7 @@ button{
   box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
   margin: 0 auto 0 auto;
   border-bottom:3px solid rgba(0,0,0,0.1);
+  cursor: pointer;
 }
 button:hover{
   background-color: rgba(255, 217, 0, 0.25);

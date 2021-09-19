@@ -1,13 +1,14 @@
 var cards = document.querySelectorAll('.card_inner')
-// var firstClick = false
 var cardPair = []
 var countingTime
-var score = document.querySelector('#score').innerHTML
+var score
+
+$(document).ready(function() {
+  score = $('#score').text()
+})
 
 for(let i=0; i<cards.length; i++){
-    cards[i].addEventListener('click',()=>{
-        // if(!firstClick){time()}
-        // firstClick = true        
+    cards[i].addEventListener('click',()=>{ 
 
         if(cards[i].state == 'unclicked'){
             cards[i].style.transform = 'rotateY(180deg)'
@@ -24,23 +25,42 @@ for(let i=0; i<cards.length; i++){
     })
 }
 
+// $(document).ready(function() {
+//   $('.card_outer').click(function() {
+//       $(this).fadeOut('slow');
+//       $(this).slideDown('fast');
+//       $(this).slideUp('fast');
+//       $(this).fadeIn('slow');
+//     })
+// })
+
 function gameStart(){
   settingUp()
   setTimeout(()=>{
+    $(document).ready(function() {
+      $("#startResetButton").html("Reset")
+    })
     time()
   },3500)
 }
 
 function settingUp(){
   hideCards()
-  shuffle()
   setTimeout(()=>{
-    revealCards()
-  },500)
-  setTimeout(()=>{
+    score = 0
+    $('#time').text(`00:00`)
+    clearInterval(countingTime)
+    updateScore()
     hideCards()
-    cardsStateUnclicked()
-  },3000)
+    shuffle()
+    setTimeout(()=>{
+      revealCards()
+    },500)
+    setTimeout(()=>{
+      hideCards()
+      cardsStateUnclicked()
+    },3000)
+  },500)
 }
 
 function revealCards(){
@@ -73,13 +93,18 @@ function check(){
     }  
 }
 
+function updateScore(){
+  $(document).ready(function() {
+    $('#score').text(score)
+  })
+}
+
 function matched(){
   cardPair[0].state='blocked'
   cardPair[1].state='blocked'
   cardPair = []
-
   score++
-  document.querySelector('#score').innerHTML = score
+  updateScore()
   if(score == 8){
     clearInterval(countingTime)
   }
@@ -110,7 +135,8 @@ function time(){
       secs<10?SS=`0${secs}`:SS=`${secs}`
       mins<10?MM=`0${mins}`:SS=`${mins}`
       
-      document.querySelector('#time').innerHTML = `${MM}:${SS}`
+      $('#time').text(`${MM}:${SS}`)
+
     }, 1000)
 }
 
