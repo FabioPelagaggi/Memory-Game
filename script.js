@@ -156,7 +156,9 @@ function convertTime(ms){
 }
 
 function checkNewTime(newTime){
-  if(convertTime(newTime) <= convertTime(localBestTime)){
+  if(convertTime(localBestTime) == null){
+    saveLocalStoreNew()
+  } else if(convertTime(newTime) <= convertTime(localBestTime)){
     saveLocalStoreNew()
   }
 }
